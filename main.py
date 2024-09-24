@@ -28,4 +28,22 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 #20% of data for testing, and 80% will be used for training (test_size=0.2)
 #Random_state=42 uses a seed number to insure that the split will be the same each time
 
+#Step 4: Feature Extraction
+vectorizer = TfidfVectorizer()
+X_train_vectors = vectorizer.fit_transform(X_train)
+X_test_vectors = vectorizer.transform(X_test)
+#Creating TF-IDF vectorizer, fitting it to training data and transforming it.
 
+#Step 5: Build and train a sentiment analysis model
+model = SVC()
+print("Starting model training...")
+model.fit(X_train_vectors, y_train)
+print("Model training completed.")
+#Support Vector Machine = machine learning algotithm. Default SVC() will use a linear kernel
+#This method trains the SVC model on training data
+
+#Step 6: Evaluate the model
+y_pred = model.predict(X_test_vectors)
+print("Classification Report:")
+print(classification_report(y_test, y_pred))
+print("Accuracy Score:", accuracy_score(y_test, y_pred))

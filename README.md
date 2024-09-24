@@ -72,6 +72,18 @@ Results
 -------
 
 The sentiment analysis model achieved an accuracy of **~70%** on the test set. Below is the classification report showing the model's performance across different sentiment categories:
+Classification Report:
+              precision    recall  f1-score   support
+
+    negative       0.77      0.57      0.66      1562
+     neutral       0.62      0.81      0.70      2230
+    positive       0.80      0.68      0.73      1705
+
+    accuracy                           0.70      5497
+
+weighted avg       0.72      0.70      0.70      5497
+
+Accuracy Score: 0.698744769874477
 
 Acknowledgments
 ---------------
